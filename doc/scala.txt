@@ -49,7 +49,7 @@ issue a new mapping to :ScalaInsertPackage<CR>
 
 CONFIGURATION .................................... *scala.vim-configuration*
 
-There are two configuration options for `scala`.
+There are two configuration options for `scala.vim`'s package manipulation.
 
     *g:scala_package_prefix* - Default: `[ "main", "test", "it", "bt", "fun" ]`
 
