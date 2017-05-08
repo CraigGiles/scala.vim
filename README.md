@@ -1,11 +1,21 @@
-# *scalapackage.txt*
-#### Plugin for inserting package statements in Scala files
+# *scala.vim*
+#### Plugin to help programming in scala
 
 #### INTRODUCTION
 ---
 
 This plugin was developed as a learning experience but filled a need for my
 workflow. The code can be found on its github repository
+
+After doing some research, vim-scala's syntax highlighting was merged
+into vim proper late 2016. Currently the vim-scala plugin handles other
+tools such as tagbar config and sorting of scala import statements,
+however I feel that configuration of tagbar should be handled in the
+users vim configuration file and sorting of scala import statements,
+while useful, is better handled by scala formatting tools.
+
+Because of this I've renamed my package plugin to scala.vim and will be
+enhancing it with scala related vim-isms as I run into them.
 
 #### INSTALLATION
 ---
@@ -14,23 +24,30 @@ If you have Vundle, Pathogen, or VimPlug installed, simply add the following to 
 
 Vundle:
 
-    Plugin 'CraigGiles/scalapackage.vim'
+    Plugin 'CraigGiles/scala.vim'
     :PluginInstall
 
 Pathogen:
 
     cd ~/.vim/bundle && \
-    git clone https://github.com/CraigGiles/scalapackage.vim.git
+    git clone https://github.com/CraigGiles/scala.vim.git
 
 VimPlug
 
-    Plug 'CraigGiles/scalapackage.vim'
-    :PluginInstall
+    Plug 'CraigGiles/scala.vim'
+    :PlugInstall
 
 #### USAGE
 ---
 
-Usage of this plugin is straightforward. When editing a *.scala file you can
+For a full list of features, visit the `:h scala.vim` text document
+
+All commands associated with the scala language will be prefixed by the
+:Scala* keyword. The following is a list of implemented commands
+
+*:ScalaInsertPackage*
+
+Usage of this command is straightforward. When editing a *.scala file you can
 issue a *:ScalaInsertPackage* command to append the package to the top of the
 current buffer.
 
@@ -43,7 +60,7 @@ issue a new mapping to :ScalaInsertPackage<CR>
 #### CONFIGURATION
 ---
 
-There are two configuration options for `scalapackage`.
+There are two configuration options for `scala.vim` package manipulation.
 
     let g:scala_package_prefix = [ "main", "test", "it", "bt", "fun" ]
 
@@ -53,15 +70,15 @@ will have a `src/main/scala` and `src/test/scala` but adding your own scopes
 for testing (`it` is a typical one) should work with this plugin as well as
 long as they're included in the `g:scala_package_prefix` list.
 
-    let g:scala_package_flat_package = 1
+    let g:scala_package_flat = 1
 
-`g:scala_package_flat_package` allows a user to insert a single package
+`g:scala_package_flat` allows a user to insert a single package
 statement at the top of their buffer. Single package statements will look
 like typical java / scala package statements:
 
     package com.company.project.whatever
 
-When `g:scala_package_flat_package` is set to 0 it will issue multiple
+When `g:scala_package_flat` is set to 0 it will issue multiple
 package statements:
 
     package com.company

@@ -1,4 +1,4 @@
-*scala.vim.txt* Plugin to help programming in Scala
+scala.vim.txt* Plugin to help programming in Scala
 
 Author:  Craig Giles <http://www.gilesc.com>
 
