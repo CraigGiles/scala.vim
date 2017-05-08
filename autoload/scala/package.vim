@@ -6,29 +6,29 @@ endfunction
 " }}}
 " {{{ Composing Function Helpers
 function! scala#package#InsertPackageStatement(str, flat_package)
-    let a:a = scala#package#AbsolutePathToCodePath(a:str)
-    let a:b = scala#package#SlashToDot(a:a)
-    let a:c = scala#package#RemoveLastWord(a:b)
-    let a:d = scala#package#InsertPackageKeyword(a:c)
+    let l:a = scala#package#AbsolutePathToCodePath(a:str)
+    let l:b = scala#package#SlashToDot(l:a)
+    let l:c = scala#package#RemoveLastWord(l:b)
+    let l:d = scala#package#InsertPackageKeyword(l:c)
 
     if (a:flat_package == 1)
-        return [a:d]
+        return [l:d]
     else
-        return scala#package#FlatPackageToMultiplePackage(a:d)
+        return scala#package#FlatPackageToMultiplePackage(l:d)
 endfunction
 " }}}
 " {{{ Function Helpers
 
 
 function! scala#package#AbsolutePathToCodePath(p)
-  let a:scala_package_prefix = [ "main", "test", "it" ]
-  let a:test = a:p
+  let l:scala_package_prefix = [ "main", "test", "it" ]
+  let l:test = a:p
 
-  for i in a:scala_package_prefix
-    let a:test = substitute(a:test, ".*src\/" . i . "\/scala/", "", "")
+  for i in l:scala_package_prefix
+    let l:test = substitute(l:test, ".*src\/" . i . "\/scala/", "", "")
   endfor
 
-  return a:test
+  return l:test
 endfunction
 
 function! scala#package#SlashToDot(p)
@@ -36,11 +36,11 @@ function! scala#package#SlashToDot(p)
 endfunction
 
 function! scala#package#RemoveLastWord(p)
-    let a:ary = split(a:p, '\.')
-    let a:length = len(a:ary)
-    let a:all_but_last = a:ary[0:a:length - 2]
+    let l:ary = split(a:p, '\.')
+    let l:length = len(l:ary)
+    let l:all_but_last = l:ary[0:l:length - 2]
 
-    return join(a:all_but_last, '.')
+    return join(l:all_but_last, '.')
 endfunction
 
 function! scala#package#InsertPackageKeyword(p)
@@ -48,19 +48,17 @@ function! scala#package#InsertPackageKeyword(p)
 endfunction
 
 function! scala#package#FlatPackageToMultiplePackage(p)
-    let a:removed_package = split(a:p)[1]
-    let a:ary = split(a:removed_package, '\.')
-    let a:firsttwo = a:ary[0] . "." . a:ary[1]
-    let a:next = [a:firsttwo] + a:ary[2:]
+    let l:removed_package = split(a:p)[1]
+    let l:ary = split(l:removed_package, '\.')
+    let l:firsttwo = l:ary[0] . "." . l:ary[1]
+    let l:next = [l:firsttwo] + l:ary[2:]
 
-    let a:joined = []
-    for i in a:next
-        let a:joined = a:joined + ["package " . i]
+    let l:joined = []
+    for i in l:next
+        let l:joined = l:joined + ["package " . i]
     endfor
 
-    " let a:joined = join(a:next, "\npackage ")
-
-    return a:joined
+    return l:joined
 endfunction
 " }}}
 

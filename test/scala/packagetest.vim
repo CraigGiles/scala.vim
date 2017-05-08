@@ -37,27 +37,27 @@ endfunction
 "}}}
 "{{{ Functional Tests
 function! s:TestItConvertsCodePathToFlatPackage()
-  let g:scala_package_flat_package = 1
+  let g:scala_package_flat = 1
   let s:before = "/Users/craig/Development/myproj/src/main/scala/com/example/myproj/hello/world/HelloWorld"
-  let s:after = scala#package#InsertPackageStatement(s:before, g:scala_package_flat_package)
+  let s:after = scala#package#InsertPackageStatement(s:before, g:scala_package_flat)
   let s:expected = ["package com.example.myproj.hello.world"]
 
   AssertEquals(s:after, s:expected)
 endfunction
 
 function! s:TestItConvertsCodePathToMultiplePackageStatements()
-  let g:scala_package_flat_package = 0
+  let g:scala_package_flat = 0
   let s:before = "/Users/craig/Development/myproj/src/main/scala/com/example/myproj/hello/world/HelloWorld"
-  let s:after = scala#package#InsertPackageStatement(s:before, g:scala_package_flat_package)
+  let s:after = scala#package#InsertPackageStatement(s:before, g:scala_package_flat)
   let s:expected = ["package com.example", "package myproj", "package hello", "package world"]
 
   AssertEquals(s:after, s:expected)
 endfunction
 
 function! s:TestItWorksWithTestFile()
-  let g:scala_package_flat_package = 1
+  let g:scala_package_flat = 1
   let s:before = "/Users/craig/Development/myproj/src/test/scala/com/example/myproj/HelloWorldSpec"
-  let s:after = scala#package#InsertPackageStatement(s:before, g:scala_package_flat_package)
+  let s:after = scala#package#InsertPackageStatement(s:before, g:scala_package_flat)
   let s:expected = ["package com.example.myproj"]
 
   AssertEquals(s:after, s:expected)
