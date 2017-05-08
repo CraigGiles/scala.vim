@@ -20,7 +20,7 @@ if !exists('g:scala_package_prefix ')
     let g:scala_package_prefix = [ "main", "test", "it", "bt", "fun" ]
 endif
 
-if !exists('g:scala_package_flat')"
+if !exists('g:scala_package_flat')
     let g:scala_package_flat = 1
 endif
 "}}}
