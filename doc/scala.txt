@@ -1,38 +1,38 @@
-*scalapackage.txt*	Plugin inserting package statements in Scala files
+*scala.txt*	Plugin inserting package statements in Scala files
 
 Author:  Craig Giles <http://www.gilesc.com>
 
-Introduction ..................................... |scalapackage-introduction|
-Usage ............................................ |scalapackage-usage|
-Mappings ......................................... |scalapackage-mappings|
-Configuration .................................... |scalapackage-configuration|
-License .......................................... |scalapackage-license|
-Bugs ............................................. |scalapackage-bugs|
-Contributing ..................................... |scalapackage-contributing|
-Changelog ........................................ |scalapackage-changelog|
-Credits .......................................... |scalapackage-credits|
+Introduction ..................................... |scala-introduction|
+Usage ............................................ |scala-usage|
+Mappings ......................................... |scala-mappings|
+Configuration .................................... |scala-configuration|
+License .......................................... |scala-license|
+Bugs ............................................. |scala-bugs|
+Contributing ..................................... |scala-contributing|
+Changelog ........................................ |scala-changelog|
+Credits .......................................... |scala-credits|
 
 This plugin is only available if 'compatible' is not set.
 
-INTRODUCTION                    *scalapackage-introduction* *scalapackage*
+INTRODUCTION                    *scala-introduction* *scala*
 
 This plugin was developed as a learning experience but filled a need for my
 workflow. The code can be found on its github repository
 
-USAGE ............................................ *scalapackage-usage*
+USAGE ............................................ *scala-usage*
 
 Usage of this plugin is straightforward. When editing a *.scala file you can
 issue a *:ScalaInsertPackage* command to append the package to the top of the
 current buffer.
 
-MAPPINGS ......................................... *scalapackage-mappings*
+MAPPINGS ......................................... *scala-mappings*
 
 There are no mappings associated with this plugin. To create a mapping simply
 issue a new mapping to :ScalaInsertPackage<CR>
 
-CONFIGURATION .................................... *scalapackage-configuration*
+CONFIGURATION .................................... *scala-configuration*
 
-There are two configuration options for `scalapackage`.
+There are two configuration options for `scala`.
 
     *g:scala_package_prefix* - Default: `[ "main", "test", "it", "bt", "fun" ]`
 
@@ -57,29 +57,30 @@ package statements:
     `package project`
     `package whatever`
 
-LICENSE .......................................... *scalapackage-license*
+LICENSE .......................................... *scala-license*
 
 This software is written and distributed with the MIT license.
 
-BUGS ............................................. *scalapackage-bugs*
+BUGS ............................................. *scala-bugs*
 
 Known issue with package objects not having the right package statement
 
-CONTRIBUTING ..................................... *scalapackage-contributing*
+CONTRIBUTING ..................................... *scala-contributing*
 
 Bugs can be reported and the very latest development version can be retrieved
 from GitHub. If you would like to contribute back, simply fork the project and
 submit a pull request into the `master` branch:
-    https://github.com/tpope/vim-scalapackage >
-    git clone git://github.com/tpope/vim-scalapackage.git
+    https://github.com/craiggiles/scala.vim
+    git clone git://github.com/craiggiles/scala.vim
 
-CHANGELOG ........................................ *scalapackage-changelog*
+CHANGELOG ........................................ *scala-changelog*
 
     * `1.0.0` Initial version
 
-CREDITS .......................................... *scalapackage-credits*
+CREDITS .......................................... *scala-credits*
 
 This plugin is written and maintained by Craig Giles <http://www.gilesc.com>
+
 Learning resources for writing this plugin can be attributed to many sources:
 
 Learning Resources:
